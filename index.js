@@ -37,7 +37,7 @@ app.post("/add",(req,res)=>{
 app.get("/list",async (req,res)=>{
     const{email}=req.body;
     try {
-        const list=await User.find(email);
+        const list=await User.find({email:email});
         res.send({list,success:true});
     } catch (error) {
         res.send({success:false});
